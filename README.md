@@ -1,0 +1,2 @@
+# HexAndVexCompleteDevelopmentRepositoryWithProperManagementSolutionsAndWillToDo
+Hex and Vex The Best Game Ever
