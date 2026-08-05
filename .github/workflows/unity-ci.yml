@@ -2,20 +2,18 @@ name: Unity Builder & Checker
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ main, Main, TestingFeatures, Development ]
 
 jobs:
   testAndBuild:
     name: Check Unity Compile & Tests
     runs-on: ubuntu-latest
     steps:
-      # 1. Kodları ve LFS dosyalarını çek
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           lfs: true
 
-      # 2. Build süresini kısaltmak için Unity Library klasörünü cache'le
       - uses: actions/cache@v3
         with:
           path: Library
@@ -23,7 +21,6 @@ jobs:
           restore-keys: |
             Library-
 
-      # 3. Unity Editör Testlerini Çalıştır (Derleme hatası veya eksik paket varsa patlar)
       - name: Run Unity Tests
         uses: game-ci/unity-test-runner@v4
         env:
